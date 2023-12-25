@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{Admin/admin-base::layout(~{::section})}">
+
+<head>
+	<meta charset="utf-8">
+	<title>admin- All Product</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+
+</head>
+
+<body>
+
+	<div class="container-xxl position-relative bg-white d-flex p-0">
+		<!-- Spinner Start -->
+		<div id="spinner"
+			class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+			<div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		<!-- Spinner End -->
+
+
+
+
+		<!-- Content Start -->
+		<section>
+			<!-- Table Start -->
+			<div class="container-fluid pt-4 px-4">
+				<div class="row g-4">
+					<div class="col-12">
+						<div class="bg-light rounded h-100 p-4">
+							<button class="btn btn-primary mb-3"><a style="color: white;" href="#"
+									th:href="@{/admin/addProduct}">add Product</a></button>
+							<div class="table-responsive">
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col">#Id</th>
+											<th scope="col">Product Image</th>
+											<th scope="col">Product Name</th>
+											<th scope="col">Product Category</th>
+											<th scope="col">Product Price</th>
+											<th scope="col">Product Brand</th>
+											<th scope="col">EDIT</th>
+											<th scope="col">DELETE</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="p : ${product}">
+											<th th:text="${p.id}"></th>
+											<td>
+
+												<img style="border-radius: 0; width: 60px; height: 60px; object-fit: cover; border-radius: 50%;"
+													th:src="@{'/images/'+${p.pimage1}}"
+													alt="image" />
+
+												<!--	<img
+										style="border-radius: 0; width: 100px; height: 100px"
+										th:src="static/images/${p.pimage1}" alt="image"
+										 />-->
+											</td>
+											<td th:text="${p.pname}"></td>
+											<td></td>
+											<td th:text="${p.price}"></td>
+											<td th:text="${p.brand}"></td>
+											<td>
+												<button class="btn btn-primary">Edit</button>
+											</td>
+											<td>
+												<!--<button class="btn btn-danger"><a style="color: white;" href="#" th:href="@{'/admin/deleteProduct/' + ${p.id}}">Delete</a></button>-->
+												<button class="btn btn-danger"><a style="color: white;" href="#" th:onclick="|deleteProduct(${p.id})|">Delete</a></button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Table End -->
+		</section>
+
+
+	</div>
+	<!-- Content End -->
+
+
+	<!-- Back to Top -->
+	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+	</div>
+
+
+</body>
+
+</html>

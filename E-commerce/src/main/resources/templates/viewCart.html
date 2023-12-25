@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})} ">
+<head>
+<!-- Basic -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- Mobile Metas -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<!-- Site Metas -->
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="shortcut icon" href="images/favicon.png" type="">
+<title>Famms-login.html</title>
+
+  <link th:href="@{/css/cart.css}" rel="stylesheet" />
+
+</head>
+<body class="sub_page">
+	
+
+	<div class="hero_area">
+		
+	</div>
+	<!-- inner page section -->
+	<section class="inner_page_head">
+		<div class="container_fuild">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="full">
+						<h3>Your Cart</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end inner page section -->
+	
+	
+	<section>
+		
+	
+		<div class="small-container cart-page">
+			<div class="upper-table">
+			<table class="col-md-8 offset-md-2">
+				<tr>
+					<th>Product Image</th>
+					<th>PRODUCT</th>
+					<th>QUNTITY</th>
+					<th>Price</th>
+					<th>Delete</th>
+				</tr>
+				<tr  th:each="c: ${cart}">
+					<td>
+						<img style="height: 100px;" th:src="@{'/images/' + ${c.Product.pimage1}}" alt="image" />
+					</td>
+					<td>
+						<div class="cart-info">
+							  <p class="cart"><span th:text="${c.Product.pname}"></span></p>
+						</div>
+						
+					</td>
+					<td><p class="cart">2</p></td>
+					<td><p class="cart"><span th:text="${c.Product.price}"></span></pclass="cart"></td>
+					<td>
+						<button class="btn btn-danger"><a style="text-decoration: none; color: white;" href="#" th:href="@{'/removeCart/' + ${c.id}}">Remove</a></button>
+					
+					<!--<button class="btn btn-danger"><a style="text-decoration: none; color: white;" href="#" th:onclick="|deleteCart(${c.id})|">Remove</a></button>
+					-->
+					</td>
+				</tr>
+				
+				
+				
+			</table>
+			</div>
+			
+			<div class="total-price">
+				
+				<table>
+					<tr>
+						<td><p>Subtotal</p></td>
+						<td><p>$ 200.0</p></td>
+					</tr>
+					<tr>
+						<td><p>Tx</p></td>
+						<td><p>35</p></td>
+					</tr>
+					<tr>
+						<td><p>total</p> </td>
+						<td><span th:text="${cartTotal}"></span></td>
+					</tr>
+					
+				</table>
+			</div>
+			
+		</div>
+		
+	
+	</section>
+	
+	
+	
+</body>
+</html>

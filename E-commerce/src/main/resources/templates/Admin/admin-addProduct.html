@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{Admin/admin-base::layout(~{::section})}">
+
+
+<head>
+	<meta charset="utf-8">
+	<title>Admin-addProduct</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+
+</head>
+
+<body>
+	<div class="container-xxl position-relative bg-white d-flex p-0">
+		<!-- Spinner Start -->
+		<div id="spinner"
+			class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+			<div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		<!-- Spinner End -->
+
+
+
+
+
+		<section >
+
+			<!-- Form Start -->
+			<div class="container-fluid pt-4 px-4">
+				<div class="row g-4">
+					<div class="col-md-8 offset-md-2">
+						<div class="bg-light rounded h-100 p-4">
+							<button class="btn btn-primary mb-3"><a style="color: white;" href="#"
+									th:href="@{/admin/product}">Show Product</a></button>
+									
+<!--=================================================ADD PRODUCT FORM START =====================================================================================-->
+									
+							<form action="/admin/insertProduct" method="post" enctype="multipart/form-data">
+								
+								<div class="mb-3">
+									<label for="pname" class="form-label">Product Name</label>
+									<input type="text" name="pname" class="form-control" id="pname">
+								</div>
+
+
+
+								<div class="form-floating mb-3">
+									<select   th:field="*{category}" class="form-select" id="floatingSelect"
+										name="category" aria-label="Floating label select example">
+										<option value="" selected>Select a category</option>
+
+										<option th:each="c : ${category}" th:value="${c.id}" th:text="${c.cname}"></option>
+
+
+									</select>
+									<label for="floatingSelect">Select a category</label>
+								</div>
+								
+								
+								
+
+								<div class="mb-3">
+									<label for="image1" class="form-label">Product pimage1</label>
+									<input name="image1" class="form-control" type="file" id="image1">
+								</div>
+								
+								
+								<div class="mb-3">
+									<label for="image2" class="form-label">Product pimage2</label>
+									<input name="image2" class="form-control" type="file" id="image2">
+								</div>
+								
+								
+								<div class="mb-3">
+									<label for="image3" class="form-label">Product pimage3</label>
+									<input name="image3" class="form-control" type="file" id="image3">
+								</div>
+								
+								
+								<div class="mb-3">
+									<label for="image4" class="form-label">Product pimage4</label>
+									<input name="image4" class="form-control" type="file" id="image4">
+								</div>
+
+
+								<div class="mb-3">
+									<label for="brand" class="form-label">Product Brand</label>
+									<input type="text" name="brand" class="form-control" id="brand">
+								</div>
+
+
+								<div class="mb-3">
+									<label for="price" class="form-label">Product Prices</label>
+									<input type="number" name="price" class="form-control" id="price">
+								</div>
+								
+								 <div class="mb-3 form-group">
+                                       <label for="description">Product Description</label>
+                                       <textarea name="description" type="text" class="form-control" id="description" rows="3"></textarea>
+                                  </div>
+                                  
+                                  
+                                   <div class=" mb-3 form-group">
+                                       <label for="information">Product Information</label>
+                                       <textarea name="information" type="text" class="form-control" id="information" rows="3"></textarea>
+                                  </div>
+
+
+
+								<div class="mb-3 form-check">
+									<input name="checkbox" type="checkbox" class="form-check-input" id="checkbox">
+									<label class="form-check-label" for="checkbox">you really wann to add this to product ?</label>
+								</div>
+								
+								<div class="text-center">
+								<button type="submit" class="btn btn-primary">Sign in</button>
+								</div>
+								 
+							</form>
+<!--======================================================= ADD PRODUCT FORM END =================================================================================-->							
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- Form End -->
+		</section>
+
+
+		<!-- Back to Top -->
+		<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+	</div>
+
+
+</body>
+
+</html>

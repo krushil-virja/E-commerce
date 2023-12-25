@@ -1,0 +1,66 @@
+p{
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a{
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.cart-page{
+		margin: 80px auto;
+/*		background: yellow	
+*/		}
+	
+	table{
+		width: 80%;
+		border-collapse: collapse;
+		
+	}
+	
+.upper-table{
+/*	background-color: blue;
+*/}
+.cart-info{
+	display: flex;
+	flex-wrap: wrap;
+	}
+	
+th{
+	text-align: left;
+	padding:5px;
+	color: #fff;
+	background: #f7444e;
+	font-weight: normal;
+}
+
+td{
+	padding: 10px 5px;
+} 
+
+td a {
+	color:#f7444e; 
+}
+
+td img{
+	
+	width: 80px;
+	height: 80px ;
+	margin-right:10px  ;
+}
+
+.total-price{
+/*	background-color: lightblue;
+*/	width: 83.2%;
+	display: flex;
+	justify-content: flex-end;
+/*	display: grid;
+*/	/*display:flex;
+	justify-content: flex-end;
+	margin-right: 250px;*/
+	}
+	
+.total-price table{
+	
+	border-top: 3px solid #ff523b;
+	width: 80%; 
+	max-width: 300px;
+}

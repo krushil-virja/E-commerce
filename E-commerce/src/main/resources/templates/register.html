@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+
+<head>
+	<!-- Basic -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- Mobile Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<!-- Site Metas -->
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<link rel="shortcut icon" href="images/favicon.png" type="">
+	<title>Famms-register.html</title>
+	
+</head>
+
+<body class="sub_page">
+	<div class="hero_area">
+
+	</div>
+	<!-- inner page section -->
+	<section class="inner_page_head">
+		<div class="container_fuild">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="full">
+						<h3>Register</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end inner page section -->
+	<!-- why section -->
+	<section class="why_section layout_padding">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2">
+					<div class="full">
+						<form action="do_register" method="post" th:object="${user}">
+							<fieldset>
+								
+								<div>
+								<label for="name">Name :-</label>
+								<input th:classappend="${#fields.hasErrors('name')? 'is-invalid' : ''}" type="text" placeholder="Enter your full name" name="name"  th:value="${user.name}" />
+								<div  class="invalid-feedback" th:each="e: ${#fields.errors('name')}" th:text="${e}" ></div>				
+								</div>
+								
+								<div>
+								<label for="email">Email :-</label>
+								<input th:classappend="${#fields.hasErrors('email')? 'is-invalid' : ''}" type="email" placeholder="Enter your email address" name="email" th:value="${user.email}"  />
+								<div class="invalid-feedback" th:each="e:${#fields.errors('email')}" th:text="${e}"></div>
+                                 </div>
+
+
+                                <div>
+								<label for="password">Password :-</label>
+								<input th:classappend="${#fields.hasErrors('password') ? 'is-invalid': ''}" type="password" placeholder="Enter your password" name="password" />
+                            <div class="invalid-feedback" th:each="e:${#fields.errors('password')}" th:text="${e}"></div>
+                                </div>
+
+                                 
+			 					<label for="contact">Contact :-</label>
+								<input th:classappend="${#fields.hasErrors('contact') ? 'is-invalid' : ''}" type="text" placeholder="Enter your Contact number" name="contact" th:value="${user.contact}"  />
+                                <div class="invalid-feedback" th:each="e:${#fields.errors('contact')}" th:text="${e}" ></div>
+                             
+
+
+			 					<label for"role">Role</label>
+								<select type="text" name="role" id="role" class="form-control">
+   
+                                 <option selected disabled value="">Select your Role</option>
+
+								<option value="User">User</option>
+								<option value="Admin">Admin</option>
+						     	</select>
+
+								<label for="city">City :-</label>
+								<input type="text" placeholder="Enter your city" name="city" th:value="${user.city}"  />
+
+								<label for="pincode"> pincode :- </label>
+								<input th:classappend="${#fields.hasErrors('pincode')? 'is-invalid' : ''}" type="text" placeholder="Enter your pincode " name="pincode" />
+                                 <div class="invalid-feedback" th:each="e:${#fields.errors('pincode')}" th:text="${e}"></div>
+
+
+
+								<input type="submit" value="Register" />
+								<div class="text-center mt-3">
+									<p>Already have an account? <a href="#" th:href="login">Login</a></p>
+
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end why section -->
+	<!-- arrival section -->
+	<section class="arrival_section">
+		<div class="container">
+			<div class="box">
+				<div class="arrival_bg_box">
+					<img src="images/arrival-bg.png" alt="">
+				</div>
+				<div class="row">
+					<div class="col-md-6 ml-auto">
+						<div class="heading_container remove_line_bt">
+							<h2>
+								#NewArrivals
+							</h2>
+						</div>
+						<p style="margin-top: 20px;margin-bottom: 30px;">
+							Vitae fugiat laboriosam officia perferendis provident aliquid voluptatibus dolorem, fugit
+							ullam sit earum id eaque nisi hic? Tenetur commodi, nisi rem vel, ea eaque ab ipsa, autem
+							similique ex unde!
+						</p>
+						<a href="">
+							Shop Now
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end arrival section -->
+
+	
+</body>
+
+</html>

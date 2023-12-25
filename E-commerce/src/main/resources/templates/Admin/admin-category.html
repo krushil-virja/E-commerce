@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{Admin/admin-base::layout(~{::section})}">
+
+<head>
+    <meta charset="utf-8">
+    <title>admin- All Category</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+   
+</head>
+
+<body>
+	
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        
+
+        <!-- Content Start -->
+      <section>
+            <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="bg-light rounded h-100 p-4">
+                               <button class="btn btn-primary mb-3"><a style="color: white;" href="#" th:href="@{/admin/addCategory}">add Category</a></button>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr >
+                                            <th>#</th>
+                                             <th >Category Image</th>
+                                            <th>Category Name</t>
+                                            <th >EDIT</th>
+                                            <th >DELETE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="c : ${category}">
+                                            <th  th:text="${c.id}"></th>
+                                             <td>
+									          <img style="border-radius: 0; width: 50px; height: 50px;  object-fit: cover; border-radius: 50%; border: 2px groove black;"
+													th:src="@{'/images/' + ${c.cimage}}"
+													alt="image" />
+
+											</td>
+                                            <td  th:text="${c.cname}"></td>
+                                           
+                                            <td>
+												<button class="btn btn-primary"><a style="color: white;" href="" th:href="@{'/admin/updateCategory/' + ${c.id}}">Edit</a></button>
+											</td>
+                                            <td>
+												<!--<button class="btn btn-danger"><a href="#" th:href="@{'/admin/deleteCategory/' + ${c.id}}">DELETE</a></button>-->
+												
+												<button class="btn btn-danger"><a style="color: white;"href="#" th:onclick="|deleteCategory(${c.id})|">DELETE</a></button>
+												
+											</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Table End -->
+   </section>
+
+  
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+
+		
+
+</body>
+
+</html>
